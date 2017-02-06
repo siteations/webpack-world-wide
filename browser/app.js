@@ -1,10 +1,12 @@
 //(function () {
-  var =require(''); //whiteboard
-  var =require(''); //socket.io
+  var whiteboard = require('./whiteboard.js'); //whiteboard
+  var io = require('socket.io-client'); //socket.io
 
+  var socket=io();
 
   //var whiteboard = window.whiteboard;
   //var socket = window.io(window.location.origin);
+  // window.io(http://localhost:1337);
 
   socket.on('connect', function () {
     console.log('Connected!');
@@ -30,3 +32,4 @@
   });
 
 //})();
+

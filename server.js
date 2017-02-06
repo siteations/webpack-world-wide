@@ -20,6 +20,8 @@ server.listen(1337, function () {
 
 app.use(express.static(path.join(__dirname, 'browser')));
 
+//app.use(express.static(path.join(__dirname, '/node_modules/socket.io-client/dist')));
+
 app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));
 });

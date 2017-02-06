@@ -1,5 +1,5 @@
 //(function () {
-var EventEmitter = require('./event-emitter.js')
+var EventEmitter = require('./event-emitter.js');
 
   //window.whiteboard = new window.EventEmitter();
   whiteboard = new EventEmitter();
