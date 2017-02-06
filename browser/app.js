@@ -1,8 +1,11 @@
 //(function () {
-  var whiteboard = require('./whiteboard.js'); //whiteboard
-  var io = require('socket.io-client'); //socket.io
 
-  var socket=io();
+ import { whiteboard } from './whiteboard.js';
+ import { io } from 'socket.io-client';
+ // var whiteboard = require('./whiteboard.js'); //whiteboard
+ // var io = require('socket.io-client'); //socket.io
+
+  let socket=io();
 
   //var whiteboard = window.whiteboard;
   //var socket = window.io(window.location.origin);

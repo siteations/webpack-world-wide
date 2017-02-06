@@ -3894,13 +3894,18 @@ module.exports = yeast;
 
 /***/ }),
 /* 25 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__event_emitter_js__ = __webpack_require__(27);
 //(function () {
-var EventEmitter = __webpack_require__(27);
+
+//var EventEmitter = require('./event-emitter.js');
 
   //window.whiteboard = new window.EventEmitter();
-  whiteboard = new EventEmitter();
+  const whiteboard = new __WEBPACK_IMPORTED_MODULE_0__event_emitter_js__["a" /* EventEmitter */]();
+/* harmony export (immutable) */ __webpack_exports__["a"] = whiteboard;
+
 
   // Ultimately, the color of our stroke;
   var color;
@@ -4015,7 +4020,8 @@ var EventEmitter = __webpack_require__(27);
 
 //})();
 
-module.exports = whiteboard;
+//export whiteboard;
+//module.exports = whiteboard;
 
 
 /***/ }),
@@ -4135,11 +4141,13 @@ exports.Socket = __webpack_require__(20);
 
 /***/ }),
 /* 27 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = EventEmitter;
 //(function () {
 
-  window.EventEmitter = EventEmitter;
+  //export const window.EventEmitter = EventEmitter;
 
   // our EventEmitter contructor function
   function EventEmitter () {
@@ -4183,7 +4191,8 @@ exports.Socket = __webpack_require__(20);
   };
 //})();
 
-module.exports=EventEmitter;
+//module.exports=EventEmitter;
+//export EventEmitter;
 
 
 /***/ }),
@@ -9154,13 +9163,21 @@ module.exports = __webpack_amd_options__;
 
 /***/ }),
 /* 57 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__whiteboard_js__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_socket_io_client__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_socket_io_client___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_socket_io_client__);
 //(function () {
-  var whiteboard = __webpack_require__(25); //whiteboard
-  var io = __webpack_require__(26); //socket.io
 
-  var socket=io();
+ 
+ 
+ // var whiteboard = require('./whiteboard.js'); //whiteboard
+ // var io = require('socket.io-client'); //socket.io
+
+  let socket=__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_socket_io_client__["io"])();
 
   //var whiteboard = window.whiteboard;
   //var socket = window.io(window.location.origin);
@@ -9176,16 +9193,16 @@ module.exports = __webpack_amd_options__;
       var start = stroke.start;
       var end = stroke.end;
       var color = stroke.color;
-      whiteboard.draw(start, end, color, false);
+      __WEBPACK_IMPORTED_MODULE_0__whiteboard_js__["a" /* whiteboard */].draw(start, end, color, false);
     });
 
   });
 
   socket.on('draw', function (start, end, color) {
-    whiteboard.draw(start, end, color, false);
+    __WEBPACK_IMPORTED_MODULE_0__whiteboard_js__["a" /* whiteboard */].draw(start, end, color, false);
   });
 
-  whiteboard.on('draw', function (start, end, color) {
+  __WEBPACK_IMPORTED_MODULE_0__whiteboard_js__["a" /* whiteboard */].on('draw', function (start, end, color) {
     socket.emit('draw', start, end, color);
   });
 
